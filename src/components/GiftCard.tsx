@@ -4,6 +4,9 @@ interface Props {
   canAssign?: boolean;
   assigned?: boolean;
   onToggleAssign?: () => void;
+  description?: string;
+  category?: string;
+  giftLevel?: number;
 }
 
 export function GiftCard({
@@ -12,6 +15,9 @@ export function GiftCard({
   canAssign,
   assigned,
   onToggleAssign,
+  description,
+  category,
+  giftLevel,
 }: Props) {
   return (
     <div className="relative bg-white rounded-2xl shadow-md p-3 w-44 flex flex-col items-center hover:scale-[1.02] transition-transform">
@@ -23,13 +29,16 @@ export function GiftCard({
           className="absolute top-3 right-3 w-4 h-4 accent-pink-500 cursor-pointer"
         />
       )}
-
       <img
         src={image}
         alt={name}
         className="rounded-xl mb-2 w-full h-32 object-cover"
       />
       <p className="text-gray-800 font-medium text-sm">{name}</p>
+      <p className="text-gray-800 font-medium text-sm">{description}</p>
+      <p className="text-gray-800 font-medium text-sm">{giftLevel}</p>
+
+      <p className="text-gray-800 font-medium text-sm">{category}</p>
     </div>
   );
 }
