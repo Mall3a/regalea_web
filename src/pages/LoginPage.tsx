@@ -11,7 +11,14 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const { mutate: loginRequest, data, isPending, isError, error } = useLogin();
+  const {
+    mutate: loginRequest,
+    data,
+    isPending,
+    isError,
+    error,
+    isSuccess,
+  } = useLogin();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,16 +33,21 @@ export default function LoginPage() {
   };
 
   useEffect(() => {
-    if (data) {
+    if (isSuccess && data) {
       login(data);
-      navigate("/user");
+      if (data.role === "ADMIN") {
+        navigate("/admin/dashboard");
+        return;
+      } else {
+        navigate("/user");
+      }
     }
   }, [data, login, navigate]);
 
   useEffect(() => {
     if (isError) {
       setMessage(
-        error instanceof Error ? error.message : "Credenciales inválidas",
+        error instanceof Error ? error.message : "Credenciales inválidas", // esta tirando la api error 500 cuando las credenciales no son validas
       );
     }
   }, [isError, error]);

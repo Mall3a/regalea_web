@@ -4,6 +4,7 @@ import { useAuthStore } from "../store/useAuthStore";
 export default function AppLayout() {
   const user = useAuthStore((s) => s.user);
   const isAdmin = user?.role.includes("ADMIN");
+  const logout = useAuthStore((s) => s.logout);
 
   return (
     <div className="min-h-screen flex bg-gray-50">
@@ -11,10 +12,12 @@ export default function AppLayout() {
         <aside className="w-64 bg-gray-900 text-white p-4">
           <h2 className="text-lg font-bold mb-6">Admin</h2>
           <nav className="flex flex-col gap-3">
+            <a href="/admin/dashboard">📊 Dashboard</a>
             <a href="/user">👤 Mi perfil</a>
             <a href="/admin/users">👥 Usuarios</a>
-            <a href="/admin/logs">📜 Logs</a>
-            <a href="/login">Log Out</a>
+            <a href="/login" onClick={() => logout()}>
+              🚪 Log Out
+            </a>
           </nav>
         </aside>
       )}

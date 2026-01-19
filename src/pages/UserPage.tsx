@@ -8,6 +8,8 @@ import { useAuthStore } from "../store/useAuthStore";
 
 export default function UserPage() {
   const authUser = useAuthStore((s) => s.user);
+  const logout = useAuthStore((s) => s.logout);
+
   const userId = authUser?.id?.toString() ?? "";
 
   const { user, userDesiredGifts, setUser, setUserDesiredGifts } =
@@ -44,7 +46,9 @@ export default function UserPage() {
   return (
     <div className="min-h-screen bg-gray-50 p-6 flex flex-col items-center gap-8">
       {/* Perfil */}
-      <a href="/login">Log Out</a>
+      <a href="/login" onClick={() => logout()}>
+        Log Out
+      </a>
 
       <div className="flex flex-col items-center">
         <img

@@ -11,6 +11,7 @@ import UserPage from "./pages/UserPage";
 import AppLayout from "./layouts/AppLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import RequireRole from "./components/RequireRole";
+import AdminDashboard from "./pages/AdminDashboard";
 
 const router = createBrowserRouter([
   { path: "/login", element: <LoginPage /> },
@@ -29,8 +30,8 @@ const router = createBrowserRouter([
         path: "admin",
         element: <RequireRole role="ADMIN" />,
         children: [
-          { path: "users", element: <div>Gestión de usuarios</div> },
-          { path: "logs", element: <div>Logs</div> },
+          { path: "users", element: <div>Gestión de usuarios</div> }, // TODO: componente de tabla de usuarios pendiente
+          { path: "dashboard", element: <AdminDashboard /> },
         ],
       },
     ],
