@@ -4,9 +4,11 @@ import { InterestTag } from "../components/InterestTag";
 import { GiftCard } from "../components/GiftCard";
 import { useUser } from "../hooks/useUser";
 import { useUserDesiredGifts } from "../hooks/useUserDesiredGifts";
+import { useAuthStore } from "../store/useAuthStore";
 
 export default function UserPage() {
-  const userId = "1"; // TODO: reemplazar por ID dinámico cuando tenga auth
+  const authUser = useAuthStore((s) => s.user);
+  const userId = authUser?.id?.toString() ?? "";
 
   const { user, userDesiredGifts, setUser, setUserDesiredGifts } =
     useUserStore();
@@ -42,6 +44,8 @@ export default function UserPage() {
   return (
     <div className="min-h-screen bg-gray-50 p-6 flex flex-col items-center gap-8">
       {/* Perfil */}
+      <a href="/login">Log Out</a>
+
       <div className="flex flex-col items-center">
         <img
           src={user.avatar ?? "https://i.pravatar.cc/150"}

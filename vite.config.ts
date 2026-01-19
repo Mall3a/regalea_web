@@ -15,7 +15,7 @@ pero el produccion volvera a falla el cors si no se configura el backend para pe
   server: {
     proxy: {
       "/api": {
-        target: "https://regalea-mono-backend.onrender.com",
+        target: "http://localhost:8080", //https://regalea-mono-backend.onrender.com
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, "/api"),
       },

@@ -1,11 +1,3 @@
-import "./App.css";
-
-function App() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary to-secondary text-black text-3xl font-bold">
-      🎁 Regalea
-    </div>
-  );
+export default function App({ children }: { children: React.ReactNode }) {
+  return <div className="min-h-screen bg-gray-50">{children}</div>;
 }
-
-export default App;
