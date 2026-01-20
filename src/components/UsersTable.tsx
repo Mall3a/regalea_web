@@ -8,41 +8,60 @@ type Props = {
 
 export function UsersTable({ users, onEdit, onDelete }: Props) {
   return (
-    <table className="min-w-full bg-white border border-gray-200 mt-4">
-      <thead>
-        <tr>
-          <th className="py-2 px-4 border-b border-gray-200">ID</th>
-          <th className="py-2 px-4 border-b border-gray-200">Nombre</th>
-          <th className="py-2 px-4 border-b border-gray-200">Email</th>
-          <th className="py-2 px-4 border-b border-gray-200">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {users.map((user) => (
-          <tr key={user.id}>
-            <td className="py-2 px-4 border-b border-gray-200">{user.id}</td>
-            <td className="py-2 px-4 border-b border-gray-200">
-              {user.firstName} {user.lastName}
-            </td>
-            <td className="py-2 px-4 border-b border-gray-200">{user.email}</td>
-            <td className="py-2 px-4 border-b border-gray-200">
-              <button
-                aria-label={`Editar usuario ${user.firstName} ${user.lastName}`}
-                className="text-blue-500 hover:underline mr-2"
-                onClick={() => onEdit(user.id)}
-              >
-                Editar
-              </button>
-              <button
-                className="text-red-500 hover:underline"
-                onClick={() => onDelete(user.id)}
-              >
-                Eliminar
-              </button>
-            </td>
+    <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white">
+      <table className="min-w-full text-sm">
+        <thead className="bg-gray-100 text-left text-gray-700">
+          <tr>
+            <th className="px-4 py-3 font-medium">ID</th>
+            <th className="px-4 py-3 font-medium">Nombre</th>
+            <th className="px-4 py-3 font-medium">Email</th>
+            <th className="px-4 py-3 font-medium text-right">Acciones</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody className="divide-y divide-gray-200">
+          {users.map((user) => (
+            <tr key={user.id} className="hover:bg-gray-50 transition-colors">
+              <td className="px-4 py-3">{user.id}</td>
+
+              <td className="px-4 py-3 font-medium text-gray-900">
+                {user.firstName} {user.lastName}
+              </td>
+
+              <td className="px-4 py-3 text-gray-600">{user.email}</td>
+
+              <td className="px-4 py-3">
+                <div className="flex justify-end gap-3">
+                  <button
+                    aria-label={`Editar usuario ${user.firstName} ${user.lastName}`}
+                    className="text-blue-600 hover:text-blue-800 transition"
+                    onClick={() => onEdit(user.id)}
+                  >
+                    Editar
+                  </button>
+
+                  <button
+                    aria-label={`Eliminar usuario ${user.firstName} ${user.lastName}`}
+                    className="text-red-600 hover:text-red-800 transition"
+                    onClick={() => onDelete(user.id)}
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              </td>
+            </tr>
+          ))}
+
+          {/* Estado vacío */}
+          {users.length === 0 && (
+            <tr>
+              <td colSpan={4} className="px-4 py-6 text-center text-gray-500">
+                No hay usuarios registrados
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
   );
 }
