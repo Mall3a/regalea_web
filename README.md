@@ -9,8 +9,9 @@ Las personas que utilicen la APP van a poder ingresar sus **intereses** y sus **
 
 Login para App de Administracion
 <img width="475" height="630" alt="image" src="https://github.com/user-attachments/assets/6bf6c35f-a9b1-4e3b-8fbc-f09702d5fab8" />
-<img width="469" height="554" alt="image" src="https://github.com/user-attachments/assets/0deead0d-3d5d-43f1-af1b-8c2e8f5e73c9" />
+App de administracion
 <img width="1494" height="450" alt="image" src="https://github.com/user-attachments/assets/e90f9e00-3ac4-4f50-8e5e-137e2e9fe861" />
+Vista de Usuario
 <img width="582" height="675" alt="image" src="https://github.com/user-attachments/assets/13f5577f-fe7b-4695-91e2-f0f54a40e817" />
 
 # React + TypeScript + Vite
