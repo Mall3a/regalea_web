@@ -12,3 +12,8 @@ export async function logIn(loginUserRequest: {
   const { data } = await api.post("/users/login", loginUserRequest);
   return data;
 }
+
+export async function getUsers() {
+  const { data } = await api.get(`/users`);
+  return data;
+}

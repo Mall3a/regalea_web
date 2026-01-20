@@ -11,8 +11,10 @@ import UserPage from "./pages/UserPage";
 import AppLayout from "./layouts/AppLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import RequireRole from "./components/RequireRole";
-import AdminDashboard from "./pages/AdminDashboard";
+import AdminDashboard from "./pages/AdminDashboardPage";
 import UsersPage from "./pages/UsersPage";
+import UserEditPage from "./pages/UserEditPage";
+import UserCreatePage from "./pages/UserCreatePage";
 
 const router = createBrowserRouter([
   { path: "/login", element: <LoginPage /> },
@@ -31,8 +33,10 @@ const router = createBrowserRouter([
         path: "admin",
         element: <RequireRole role="ADMIN" />,
         children: [
-          { path: "users", element: <UsersPage /> },
           { path: "dashboard", element: <AdminDashboard /> },
+          { path: "users", element: <UsersPage /> },
+          { path: "users/edit/:id", element: <UserEditPage /> },
+          { path: "users/create", element: <UserCreatePage /> },
         ],
       },
     ],
