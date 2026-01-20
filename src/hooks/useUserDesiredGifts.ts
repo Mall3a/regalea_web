@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { api } from "../api/axiosInstance";
+import { api } from "../services/axiosInstance";
 
 export const useUserDesiredGifts = (userId: string) => {
   return useQuery({

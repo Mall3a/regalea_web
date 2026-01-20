@@ -1,12 +1,14 @@
 import type { User } from "../types/user.types";
+import { Pencil, Trash2 } from "lucide-react";
 
 type Props = {
   users: User[];
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
+  isDeleting?: boolean;
 };
 
-export function UsersTable({ users, onEdit, onDelete }: Props) {
+export function UsersTable({ users, onEdit, onDelete, isDeleting }: Props) {
   return (
     <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white">
       <table className="min-w-full text-sm">
@@ -37,14 +39,25 @@ export function UsersTable({ users, onEdit, onDelete }: Props) {
                     className="text-blue-600 hover:text-blue-800 transition"
                     onClick={() => onEdit(user.id)}
                   >
+                    <Pencil size={16} />
                     Editar
                   </button>
 
                   <button
                     aria-label={`Eliminar usuario ${user.firstName} ${user.lastName}`}
                     className="text-red-600 hover:text-red-800 transition"
-                    onClick={() => onDelete(user.id)}
+                    onClick={() => {
+                      if (
+                        confirm(
+                          `¿Eliminar a ${user.firstName} ${user.lastName}?`,
+                        )
+                      ) {
+                        onDelete(user.id);
+                      }
+                    }}
+                    disabled={isDeleting}
                   >
+                    <Trash2 size={16} />
                     Eliminar
                   </button>
                 </div>

@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { logIn } from "../api/usersApi";
+import { logIn } from "../services/users.api";
 
 type LoginInput = {
   email: string;

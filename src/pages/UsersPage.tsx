@@ -1,13 +1,14 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UsersTable } from "../components/UsersTable";
-import type { User } from "../types/user.types";
-import { mockUsers } from "../mocks/mockUsers";
+import { UsersTableSkeleton } from "../components/UsersTableSkeleton";
+import { useUsers, useDeleteUser } from "../hooks/useUsers";
 
 export default function UsersPage() {
   const navigate = useNavigate();
+  //  const [users, setUsers] = useState<User[]>(MOCK_USERS);
+  const { data: users = [], isLoading } = useUsers(); // api esta siendo mockeada con MOCK_USERS
 
-  const [users, setUsers] = useState<User[]>(mockUsers);
+  const deleteUser = useDeleteUser();
 
   const ROUTES = {
     USERS_CREATE: "/admin/users/create", //"/admin/users/create"
@@ -24,12 +25,12 @@ export default function UsersPage() {
     // para redirigir al componente UserEditPage:
     // la asociacion de la ruta al componente se hace en el main.tsx
   };
-
   const handleDelete = (userId: number) => {
-    // Lógica para eliminar usuario
-    console.log("Eliminar usuario con ID:", userId);
     // la logica consiste en: filtrar el usuario eliminado de la lista y actualizar el estado
-    setUsers(users.filter((user) => user.id !== userId));
+    //setUsers(users.filter((user) => user.id !== userId));
+    deleteUser.mutate(userId);
+    // ya no es filter porque ya no es mock data sino una llamada a la API, pero la api esta siendo mockeada
+    // llamar al hook useDeleteUser que hace la llamada a la API
     // Pero como es un mock, solo mostramos el mensaje en consola
   };
 
@@ -52,17 +53,22 @@ export default function UsersPage() {
 
         <button
           onClick={handleAddUser}
-          className="
-            bg-blue-600 hover:bg-blue-700 transition
-            text-white px-4 py-2 rounded-lg shadow
-          "
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow"
         >
           + Agregar usuario
         </button>
       </div>
-
       {/* Tabla */}
-      <UsersTable users={users} onEdit={handleEdit} onDelete={handleDelete} />
+      {isLoading ? (
+        <UsersTableSkeleton />
+      ) : (
+        <UsersTable
+          users={users}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+          isDeleting={deleteUser.isPending}
+        />
+      )}
     </div>
   );
 }

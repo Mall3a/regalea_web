@@ -1,7 +1,7 @@
 import type { User } from "../types/user.types";
 
 // mock lista de usuarios
-export const mockUsers: User[] = [
+export let MOCK_USERS: User[] = [
   {
     id: 1,
     userName: "JuanP",
@@ -36,3 +36,11 @@ export const mockUsers: User[] = [
     role: "user",
   },
 ];
+
+export function getMockUsers() {
+  return MOCK_USERS;
+}
+
+export function removeMockUser(id: number) {
+  MOCK_USERS = MOCK_USERS.filter((u) => u.id !== id);
+}
