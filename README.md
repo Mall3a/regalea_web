@@ -5,14 +5,12 @@ Con esta app o sistema queremos resolver el problema **de no saber que regalar a
 # Cómo lograr el objetivo MVP
 
 Las personas que utilicen la APP van a poder ingresar sus **intereses** y sus **deseos de regalos** para que las demás personas de forma **anónima** puedan ver qué quieren y decidir un regalo con base a esa información.
+Login de App de Administracion <img width="475" height="630" alt="image" src="https://github.com/user-attachments/assets/6bf6c35f-a9b1-4e3b-8fbc-f09702d5fab8" />
 
+App de administracion <img width="1494" height="450" alt="image" src="https://github.com/user-attachments/assets/e90f9e00-3ac4-4f50-8e5e-137e2e9fe861" />
 
-Login de App de Administracion
-<img width="475" height="630" alt="image" src="https://github.com/user-attachments/assets/6bf6c35f-a9b1-4e3b-8fbc-f09702d5fab8" />
-App de administracion
-<img width="1494" height="450" alt="image" src="https://github.com/user-attachments/assets/e90f9e00-3ac4-4f50-8e5e-137e2e9fe861" />
-Vista del Usuario
-<img width="582" height="675" alt="image" src="https://github.com/user-attachments/assets/13f5577f-fe7b-4695-91e2-f0f54a40e817" />
+Vista del Usuario <img width="582" height="675" alt="image" src="https://github.com/user-attachments/assets/13f5577f-fe7b-4695-91e2-f0f54a40e817" />
+
 
 # React + TypeScript + Vite
 
