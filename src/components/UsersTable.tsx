@@ -1,4 +1,4 @@
-import type { User } from "../store/useUserStore";
+import type { User } from "../types/user.types";
 
 type Props = {
   users: User[];
