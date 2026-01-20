@@ -33,7 +33,7 @@ export default function UserPage() {
 
   useEffect(() => {
     if (giftsData?.userDesiredGifts) {
-      setUserDesiredGifts(giftsData.userDesiredGifts);
+      setUserDesiredGifts(giftsData.userDesiredGifts); // MOCK_USER_DESIRED_GIFTS
     }
   }, [giftsData, setUserDesiredGifts]);
 
@@ -83,16 +83,6 @@ export default function UserPage() {
         <div className="max-h-[400px] overflow-y-auto pr-2">
           <div className="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-4 justify-center">
             {userDesiredGifts.map((gift) => (
-              /**
-               *  "id": 1,
-                  "name": "calcetines",
-                  "description": "para verano talla 39",
-                  "link": null,
-                  "imageUrl": null,
-                  "giftLevel": 1,
-                  "category": "Ropa y Calzado",
-                  "notes": null
-               */
               <GiftCard
                 key={gift.id}
                 name={gift.name}

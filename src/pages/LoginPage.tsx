@@ -42,7 +42,7 @@ export default function LoginPage() {
         navigate("/user");
       }
     }
-  }, [data, login, navigate]);
+  }, [data, isSuccess, login, navigate]);
 
   useEffect(() => {
     if (isError) {

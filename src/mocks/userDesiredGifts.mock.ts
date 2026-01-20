@@ -1,7 +1,7 @@
 import type { UserDesiredGift } from "../types/user.types";
 // mock regalos deseados de usuarios
 
-export const mockUserDesiredGifts: UserDesiredGift[] = [
+export const MOCK_USER_DESIRED_GIFTS: UserDesiredGift[] = [
   {
     id: 1,
     name: "calcetines",

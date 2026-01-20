@@ -33,19 +33,18 @@ export function UsersTable({ users, onEdit, onDelete, isDeleting }: Props) {
               <td className="px-4 py-3 text-gray-600">{user.email}</td>
 
               <td className="px-4 py-3">
-                <div className="flex justify-end gap-3">
+                <div className="flex justify-end gap-3 ">
                   <button
                     aria-label={`Editar usuario ${user.firstName} ${user.lastName}`}
-                    className="text-blue-600 hover:text-blue-800 transition"
+                    className="text-blue-600 hover:text-blue-800 transition flex flex-row"
                     onClick={() => onEdit(user.id)}
                   >
                     <Pencil size={16} />
-                    Editar
                   </button>
 
                   <button
                     aria-label={`Eliminar usuario ${user.firstName} ${user.lastName}`}
-                    className="text-red-600 hover:text-red-800 transition"
+                    className="text-red-600 hover:text-red-800 transition flex flex-row"
                     onClick={() => {
                       if (
                         confirm(
@@ -58,7 +57,6 @@ export function UsersTable({ users, onEdit, onDelete, isDeleting }: Props) {
                     disabled={isDeleting}
                   >
                     <Trash2 size={16} />
-                    Eliminar
                   </button>
                 </div>
               </td>

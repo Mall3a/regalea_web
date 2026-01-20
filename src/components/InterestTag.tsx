@@ -14,8 +14,7 @@ export function InterestTag({ label }: Props) {
         text-sm font-medium
         shadow-sm
         hover:bg-gray-200
-        transition-colors
-      "
+        transition-colors"
     >
       {label}
     </span>
